@@ -1,0 +1,189 @@
+﻿@model Pokemon_ASP.Models.Pokemon
+
+@{
+    ViewBag.Title = "InsertPokemon";
+}
+<div class="white-background">
+    <h2 style="text-align:center; padding-top:20px;">Insert Pokemon</h2>
+
+
+    @using (Html.BeginForm("Create", "Pokemon"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="name">Name</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Name" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="img">Image</label>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.img, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Image URL" } })
+                        @Html.ValidationMessageFor(model => model.img, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="type1">Primary Type</label>
+                    <div class="col-md-4">
+                        @{List<String> typeList = Pokemon_ASP.Models.Pokemon.GetTypeList();
+                            <select id="type1" name="type1" class="form-control">
+                                @foreach (var type in typeList)
+                                {
+                                    <option value="@type">@type</option>
+                                }
+                            </select>
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="type2">Secondary Type</label>
+                    <div class="col-md-4">
+                        <select id="type2" name="type2" class="form-control">
+                            <option value="none">(None)</option>
+                            @foreach (var type in typeList)
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="height">Height</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.height, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Height", @type = "number" } })
+                            <span class="input-group-addon">m</span>
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.height, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="weight">Weight</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            @Html.EditorFor(model => model.weight, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Weight", @type = "number" } })
+                            <span class="input-group-addon">kg</span>
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="weaknesses">Weakness(es)</label>
+                    <div class="col-md-4">
+                        <select id="weaknesses" name="weaknesses" class="form-control" multiple="multiple" required style="height:315px;">
+                            @foreach (var type in typeList)
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </select>
+                        <p>Press CTRL to select more than one</p>
+                    </div>
+                </div>
+                <hr />
+
+                <!--Evolutions-->
+                <h4 style="text-align:center;">Evolutions (Optional)</h4>
+                <br />
+                <div class="form-group">
+                    <label class="col-md-4 control-label">First Evolution</label>
+                    <div class="col-md-4">
+                        <select id="evo1" name="evo1" class="form-control" onchange="chooseEvolution()">
+                            <option value="none">(None)</option>
+                            <option value="prev">Previous Evolution</option>
+                            <option value="next">Next Evolution</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" id="evo1_num" style="display:none">
+                    <label class="col-md-4 control-label" for="name">First Evolution Number</label>
+                    <div class="col-md-4">
+                        <input id="evo1_num" name="evo1_num" type="number" placeholder="Number" class="form-control input-md" required>
+                    </div>
+                </div>
+
+                <div class="form-group" id="evo1_name" style="display:none">
+                    <label class="col-md-4 control-label" for="name">First Evolution Name</label>
+                    <div class="col-md-4">
+                        <input id="evo1_name" name="evo1_name" type="text" placeholder="Name" class="form-control input-md" required>
+                    </div>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Second Evolution</label>
+                    <div class="col-md-4">
+                        <select id="evo2" name="evo2" class="form-control" onchange="chooseEvolution()">
+                            <option value="none">(None)</option>
+                            <option value="prev">Previous Evolution</option>
+                            <option value="next">Next Evolution</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" id="evo2_num" style="display:none">
+                    <label class="col-md-4 control-label" for="name">Second Evolution Number</label>
+                    <div class="col-md-4">
+                        <input id="evo2_num" name="evo2_num" type="number" placeholder="Number" class="form-control input-md" required>
+                    </div>
+                </div>
+
+                <div class="form-group" id="evo2_name" style="display:none">
+                    <label class="col-md-4 control-label" for="name">Second Evolution Name</label>
+                    <div class="col-md-4">
+                        <input id="evo2_name" name="evo2_name" type="text" placeholder="Name" class="form-control input-md" required>
+                    </div>
+                </div>
+
+                <script>
+                    function chooseEvolution() {
+                        var choice = document.getElementById("evo1").value;
+                        if (choice != "none") {
+                            document.getElementById("evo1_num").style.display = ("block");
+                            document.getElementById("evo1_name").style.display = ("block");
+                        } else {
+                            document.getElementById("evo1_num").style.display = ("none");
+                            document.getElementById("evo1_name").style.display = ("none");
+                        }
+                        var choice = document.getElementById("evo2").value;
+                        if (choice != "none") {
+                            document.getElementById("evo2_num").style.display = ("block");
+                            document.getElementById("evo2_name").style.display = ("block");
+                        } else {
+                            document.getElementById("evo2_num").style.display = ("none");
+                            document.getElementById("evo2_name").style.display = ("none");
+                        }
+                    }
+                </script>
+
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+
+
+
+            </fieldset>
+        </div>
+
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

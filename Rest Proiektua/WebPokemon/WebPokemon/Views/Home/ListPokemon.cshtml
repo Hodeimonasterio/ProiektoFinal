@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Pokemon List";
+}
+
+
+@foreach (var item in ViewBag.pokemons)
+{
+    <div class="pokemon-data clearfix white-background">
+        <p class="pokemon-name">@item.name <span class="pokemon-number"> N.º @item.id</span></p>
+
+        <div class="pokemon-img-container">
+            <img class="pokemon-img" src="@item.img" />
+        </div>
+        <div class="pokemon-txt-container">
+            <p class="pokemon-txt-header">Type:</p>
+
+            <p class="pokemon-txt-header">Weaknesses:</p>
+
+
+            <div class="pokemon-blue-container clearfix">
+
+                <div class="container">
+                    <p class="pokemon-txt-header">Height:</p>
+                    <p class="pokemon-hw">@item.height</p>
+                </div>
+
+                <div class="container">
+                    <p class="pokemon-txt-header">Weight:</p>
+                    <p class="pokemon-hw">@item.weight</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}

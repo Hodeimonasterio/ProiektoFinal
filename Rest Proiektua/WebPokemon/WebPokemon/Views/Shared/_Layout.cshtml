@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Pokemon</title>
+    <link rel="icon" href="https://pngimg.com/uploads/pokeball/pokeball_PNG8.png">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-logo">
+                <a href="@Url.Action("Index", "Pokemon")"><img class="logo-image" src="~/Images/Icons/Pokemon_Logo.png"></a>
+            </div>
+            <div class="navbar-button-container">
+                <ul class="nav navbar-nav">
+                    <li class="navbar-button">@Html.ActionLink("Home", "Index")</li>
+                    <li class="navbar-button">@Html.ActionLink("Pokemon List", "ListPokemon")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content white-background">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - Pokemon ASP by Igelak</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

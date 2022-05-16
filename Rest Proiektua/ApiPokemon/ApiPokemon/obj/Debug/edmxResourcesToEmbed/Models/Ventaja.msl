@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VentajaStoreContainer" CdmEntityContainer="VentajaContext">
+    <EntitySetMapping Name="advantage">
+      <EntityTypeMapping TypeName="Ventaja.advantage">
+        <MappingFragment StoreEntitySet="advantage">
+          <ScalarProperty Name="attacker_id" ColumnName="attacker_id" />
+          <ScalarProperty Name="defender_id" ColumnName="defender_id" />
+          <ScalarProperty Name="damage_multiplier" ColumnName="damage_multiplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

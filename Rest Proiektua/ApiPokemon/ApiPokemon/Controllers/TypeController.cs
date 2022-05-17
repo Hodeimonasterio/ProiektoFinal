@@ -10,7 +10,7 @@ namespace ApiPokemon.Controllers
     [RoutePrefix("api/pokedex")]
     public class TypeController : ApiController
     {
-        [HttpPost]
+        [HttpGet]
         [Route("types")]
         public IEnumerable<types> getTypes()
         {

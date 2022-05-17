@@ -10,14 +10,26 @@ namespace ApiPokemon.Controllers
     [RoutePrefix("api/pokedex")]
     public class VentajasController : ApiController
     {
+        //[HttpGet]
+        //[Route("ventaja")]
+        //public IEnumerable<advantage> getDesventajas([FromBody] int id)
+        //{
+        //    using (VentajaContext dbContext = new VentajaContext())
+        //    {
+
+        //        List<advantage> lista = dbContext.advantage.Where(s => s.defender_id == 1).ToList();
+        //        return lista;
+        //    }
+        //}
+
         [HttpGet]
         [Route("ventaja")]
-        public IEnumerable<advantage> getDesventajas([FromBody] int id)
+        public IEnumerable<advantage> getDesventajas()
         {
             using (VentajaContext dbContext = new VentajaContext())
             {
 
-                List<advantage> lista = dbContext.advantage.Where(s => s.defender_id == 1).ToList();
+                List<advantage> lista = dbContext.advantage.ToList();
                 return lista;
             }
         }

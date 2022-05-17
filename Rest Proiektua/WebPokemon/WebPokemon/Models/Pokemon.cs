@@ -15,9 +15,9 @@ namespace WebPokemon.Models
         [Required]
         public string img { get; set; }
         [Required]
-        public string type1 { get; set; }
-        [Required]
-        public string type2 { get; set; }
+        public int ?type1 { get; set; }
+       
+        public int ?type2 { get; set; }
 
         [Required]
         public string height { get; set; }

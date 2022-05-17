@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Pokemon List";
 }
 
@@ -13,24 +14,82 @@
         </div>
         <div class="pokemon-txt-container">
             <p class="pokemon-txt-header">Type:</p>
+            @if (item.type1 != null)
+            {
+                foreach (var type in ViewBag.tipos)
+                {
+                    if (item.type1 == type.id)
+                    {
+                        var imgPath = type.type + ".png";
+                        <img class="type-img" src="~/Images/Types/@imgPath" />
+                    }
 
+
+                }
+            }
+            @if (item.type2 != null)
+            {
+                foreach (var type in ViewBag.tipos)
+                {
+                    if (item.type2 == type.id)
+                    {
+                        var imgPath = type.type + ".png";
+                        <img class="type-img" src="~/Images/Types/@imgPath" />
+                    }
+
+
+                }
+            }
             <p class="pokemon-txt-header">Weaknesses:</p>
 
+            @foreach (var ventaja in ViewBag.ventajas)
+            {
+                if (ventaja.defender_id == item.type1)
+                {
+                    var multiplier = ventaja.damage_multiplier;
 
-            <div class="pokemon-blue-container clearfix">
+                    if (item.type2 != null)
+                    {
+                        foreach (var ventaja2 in ViewBag.ventajas)
+                        {
+                            if (ventaja2.defender_id == item.type2 && ventaja.attacker_id == ventaja2.attacker_id)
+                            {
 
-                <div class="container">
-                    <p class="pokemon-txt-header">Height:</p>
-                    <p class="pokemon-hw">@item.height</p>
-                </div>
+                                multiplier = (multiplier * ventaja2.damage_multiplier);
+                            }
+                        }
+                    }
 
-                <div class="container">
-                    <p class="pokemon-txt-header">Weight:</p>
-                    <p class="pokemon-hw">@item.weight</p>
+                    if (multiplier > 1)
+                    {
+                        foreach (var type in ViewBag.tipos)
+                        {
+                            if (ventaja.attacker_id == type.id)
+                            {
+                                var imgPath = type.type + ".png";
+                                <img class="type-img" src="~/Images/Types/@imgPath" />
+                            }
+
+
+                        }
+                    }
+                }
+            }
+
+                <div class="pokemon-blue-container clearfix">
+
+                    <div class="container">
+                        <p class="pokemon-txt-header">Height:</p>
+                        <p class="pokemon-hw">@item.height</p>
+                    </div>
+
+                    <div class="container">
+                        <p class="pokemon-txt-header">Weight:</p>
+                        <p class="pokemon-hw">@item.weight</p>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
     </div>
 }

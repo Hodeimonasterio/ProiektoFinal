@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PokedexModel4.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="advantage">
+    <Key>
+      <PropertyRef Name="attacker_id" />
+      <PropertyRef Name="defender_id" />
+    </Key>
+    <Property Name="attacker_id" Type="int" Nullable="false" />
+    <Property Name="defender_id" Type="int" Nullable="false" />
+    <Property Name="damage_multiplier" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PokedexModel4StoreContainer">
+    <EntitySet Name="advantage" EntityType="Self.advantage" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

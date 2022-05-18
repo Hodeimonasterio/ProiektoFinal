@@ -14,7 +14,7 @@ namespace ApiPokemon.Controllers
         [Route("types")]
         public IEnumerable<types> getTypes()
         {
-            using (TypeContext dbContext = new TypeContext())
+            using (PokedexEntities2 dbContext = new PokedexEntities2())
             {
                 List<types> lista = dbContext.types.ToList();
                 return lista;
@@ -26,7 +26,7 @@ namespace ApiPokemon.Controllers
         [Route("nombre")]
         public string getName([FromBody] int id)
         {
-            using (TypeContext dbContext = new TypeContext())
+            using (PokedexEntities2 dbContext = new PokedexEntities2())
             {
                
                 types type = dbContext.types.FirstOrDefault(X => X.id == id);

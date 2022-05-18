@@ -99,6 +99,16 @@
       <DependentUpon>Pokemon.edmx</DependentUpon>
       <LastGenOutput>Pokemon1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Pokemon1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Pokemon1.edmx</DependentUpon>
+      <LastGenOutput>Pokemon1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Pokemon1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Pokemon1.edmx</DependentUpon>
+      <LastGenOutput>Pokemon11.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\TypeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TypeModel.Context.cs</LastGenOutput>
@@ -109,6 +119,16 @@
       <DependentUpon>TypeModel.edmx</DependentUpon>
       <LastGenOutput>TypeModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\TypeModel1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TypeModel1.edmx</DependentUpon>
+      <LastGenOutput>TypeModel1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TypeModel1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TypeModel1.edmx</DependentUpon>
+      <LastGenOutput>TypeModel1.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Ventaja.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Ventaja.edmx</DependentUpon>
@@ -118,6 +138,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Ventaja.edmx</DependentUpon>
       <LastGenOutput>Ventaja.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Ventaja1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Ventaja1.edmx</DependentUpon>
+      <LastGenOutput>Ventaja1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Ventaja1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Ventaja1.edmx</DependentUpon>
+      <LastGenOutput>Ventaja1.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -130,7 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\advantage.cs">
-      <DependentUpon>Ventaja.tt</DependentUpon>
+      <DependentUpon>Ventaja1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pokemon.Context.cs">
       <AutoGen>True</AutoGen>
@@ -138,17 +168,32 @@
       <DependentUpon>Pokemon.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\pokemon.cs">
-      <DependentUpon>Pokemon.tt</DependentUpon>
+      <DependentUpon>Pokemon1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pokemon.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Pokemon.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pokemon1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pokemon1.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pokemon1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Pokemon.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pokemon1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pokemon1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pokemon11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pokemon1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -165,8 +210,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TypeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TypeModel1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeModel1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypeModel1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\types.cs">
-      <DependentUpon>TypeModel.tt</DependentUpon>
+      <DependentUpon>TypeModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ventaja.Context.cs">
       <AutoGen>True</AutoGen>
@@ -182,6 +242,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Ventaja.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ventaja1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ventaja1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ventaja1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ventaja1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ventaja1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ventaja1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,6 +281,27 @@
     </EntityDeploy>
     <Content Include="Models\Ventaja.edmx.diagram">
       <DependentUpon>Ventaja.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Pokemon1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Pokemon1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Pokemon1.edmx.diagram">
+      <DependentUpon>Pokemon1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\TypeModel1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TypeModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TypeModel1.edmx.diagram">
+      <DependentUpon>TypeModel1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Ventaja1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Ventaja1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Ventaja1.edmx.diagram">
+      <DependentUpon>Ventaja1.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

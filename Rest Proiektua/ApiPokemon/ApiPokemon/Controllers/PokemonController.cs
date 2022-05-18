@@ -15,7 +15,7 @@ namespace ApiPokemon.Controllers
         [Route("pokemons")]
         public IEnumerable<pokemon> getPokemons()
         {
-            using (PokemonContexto dbContext = new PokemonContexto())
+            using (PokedexEntities1 dbContext = new PokedexEntities1())
             {
                 List<pokemon> lista = dbContext.pokemon.ToList();
                 return lista;
@@ -26,7 +26,7 @@ namespace ApiPokemon.Controllers
         [Route("pokemon")]
         public pokemon getPokemon([FromBody] int id)
         {
-            using (PokemonContexto dbContext = new PokemonContexto())
+            using (PokedexEntities1 dbContext = new PokedexEntities1())
             {
                 pokemon pokemon = dbContext.pokemon.FirstOrDefault(X => X.id == id);
                 return pokemon;

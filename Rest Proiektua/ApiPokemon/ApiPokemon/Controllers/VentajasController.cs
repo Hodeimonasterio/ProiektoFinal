@@ -26,7 +26,7 @@ namespace ApiPokemon.Controllers
         [Route("ventaja")]
         public IEnumerable<advantage> getDesventajas()
         {
-            using (VentajaContext dbContext = new VentajaContext())
+            using (PokedexEntities3 dbContext = new PokedexEntities3())
             {
 
                 List<advantage> lista = dbContext.advantage.ToList();
